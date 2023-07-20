@@ -33,7 +33,7 @@ setup(
 		'Application Framework :: Liquirizia :: DataAccessObject :: RedisCluster',
 	],
 	install_requires=[
-		'Liquirizia@git+https://github.com/team-of-mine-labs/Liquirizia.git',
+		'Liquirizia@git+https://github.com/yong5eon/Liquirizia.git',
 		'redis-py-cluster>=2.1.3',
 	],
 	python_requires='>=3.8'
