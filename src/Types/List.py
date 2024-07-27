@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from ..DataTypeObject import DataTypeObject
+from ..Type import Type
 
 __all__ = (
-	'DataListObject'
+	'List'
 )
 
 
-class DataListObject(DataTypeObject):
-	"""
-	Data Type Object Helper Class for List
-	"""
+class List(Type):
+	"""Type Helper Class for List"""
 
 	def index(self, key, index):
 		con = self.connection

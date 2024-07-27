@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from ..DataTypeObject import DataTypeObject
+from ..Type import Type
 
 __all__ = (
-	'DataStringObject'
+	'String'
 )
 
 
-class DataStringObject(DataTypeObject):
-	"""
-	Data Type Object Helper Class for String
-	"""
+class String(Type):
+	"""Type Helper Class for String"""
 
 	def set(self, key, value):
 		con = self.connection
