@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from ..DataTypeObject import DataTypeObject
+from ..Type import Type
 
 __all__ = (
-	'DataHashObject'
+	'Hash'
 )
 
 
-class DataHashObject(DataTypeObject):
-	"""
-	Data Type Object Helper Class for Hash
-	"""
+class Hash(Type):
+	"""Type Helper Class for Hash"""
 
 	def keys(self, key):
 		con = self.connection

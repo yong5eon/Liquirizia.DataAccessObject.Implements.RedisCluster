@@ -1,27 +1,26 @@
 # -*- coding: utf-8 -*-
 
-from Liquirizia.DataAccessObject import DataAccessObject as DataAccessObjectBase
+from Liquirizia.DataAccessObject import Connection as BaseConnection
 from Liquirizia.DataAccessObject.Properties.Cache import Cache
 
 from rediscluster import RedisCluster
 
-from .DataAccessObjectConfiguration import DataAccessObjectConfiguration
+from .Configuration import Configuration
 
 __all__ = (
 	'DataAccessObject'
 )
 
 
-class DataAccessObject(DataAccessObjectBase, Cache):
+class Connection(BaseConnection, Cache):
+	"""Connection Class for Redis Cluster"""
 	"""
-	Data Access Object Class for Redis Cluster
-
 	TODO :
-		* Exception Handling with DataAccessObjectError
+		* Exception Handling with Error of DataAccessObject
 	"""
 
-	def __init__(self, conf: DataAccessObjectConfiguration):
-		super(DataAccessObject, self).__init__(conf)
+	def __init__(self, conf: Configuration):
+		super(Connection, self).__init__(conf)
 		self.conf = conf
 		self.connection = None
 		return

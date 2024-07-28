@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from ..DataTypeObject import DataTypeObject
+from ..Type import Type
 
 __all__ = (
-	'DataSortedSetObject'
+	'SortedSet'
 )
 
 
-class DataSortedSetObject(DataTypeObject):
-	"""
-	Data Type Object Helper Class for Set
-	"""
+class SortedSet(Type):
+	"""Type Helper Class for Set"""
 
 	def add(self, key, value, score, nx=False, xx=False, ch=False, incr=False):
 		con = self.connection

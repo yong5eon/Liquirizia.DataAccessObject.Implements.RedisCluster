@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from Liquirizia.DataAccessObject import DataAccessObjectConfiguration as DataAccessObjectConfigurationBase
+from Liquirizia.DataAccessObject import Configuration as BaseConfiguration
 
 __all__ = (
-	'DataAccessObjectConfiguration'
+	'Configuration'
 )
 
 
-class DataAccessObjectConfiguration(DataAccessObjectConfigurationBase):
-	"""
-	Data Access Object Configuration Class for Redis
-	"""
+class Configuration(BaseConfiguration):
+	"""Configuration Class for Redis"""
 
 	def __init__(self, hosts: list, username=None, password=None):
 		self.hosts = []

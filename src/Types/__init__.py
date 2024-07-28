@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from .DataStringObject import DataStringObject
-from .DataListObject import DataListObject
-from .DataSetObject import DataSetObject
-from .DataSortedSetObject import DataSortedSetObject
-from .DataHashObject import DataHashObject
+from .String import String
+from .List import List
+from .Set import Set
+from .SortedSet import SortedSet
+from .Hash import Hash
 
 __all__ = (
-	'DataStringObject',
-	'DataListObject',
-	'DataSetObject',
-	'DataSortedSetObject',
-	'DataHashObject',
+	'String',
+	'List',
+	'Set',
+	'SortedSet',
+	'Hash',
 )

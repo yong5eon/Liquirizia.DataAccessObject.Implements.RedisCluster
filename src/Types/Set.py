@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from ..DataTypeObject import DataTypeObject
+from ..Type import Type
 
 __all__ = (
-	'DataSetObject'
+	'Set'
 )
 
 
-class DataSetObject(DataTypeObject):
-	"""
-	Data Type Object Helper Class for Set
-	"""
+class Set(Type):
+	"""Type Helper Class for Set"""
 
 	def len(self, key):
 		return self.card(key)

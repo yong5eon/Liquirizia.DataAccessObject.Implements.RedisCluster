@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from Liquirizia.DataAccessObject import DataAccessObjectHelper
+from Liquirizia.DataAccessObject import Helper
 
-from Liquirizia.DataAccessObject.Implements.RedisCluster import DataAccessObject, DataAccessObjectConfiguration
+from Liquirizia.DataAccessObject.Implements.RedisCluster import Connection, Configuration
 
-from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import DataStringObject
-from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import DataListObject
-from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import DataSetObject
-from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import DataSortedSetObject
-from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import DataHashObject
+from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import String
+from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import List
+from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import Set
+from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import SortedSet
+from Liquirizia.DataAccessObject.Implements.RedisCluster.Types import Hash
 
 import sys
 import json
@@ -17,10 +17,10 @@ import json
 if __name__ == '__main__':
 
 	# Set connection
-	DataAccessObjectHelper.Set(
+	Helper.Set(
 		'Sample',
-		DataAccessObject,
-		DataAccessObjectConfiguration(
+		Connection,
+		Configuration(
 			hosts=[
 				'YOUR_REDIS_CLUSTER_ENDPOINT',
 				...
@@ -29,7 +29,7 @@ if __name__ == '__main__':
 	)
 
 	# Get Connection
-	con = DataAccessObjectHelper.Get('Sample')
+	con = Helper.Get('Sample')
 
 	# Get/Set Value
 	con.set('sample:sample', json.dumps({
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 	con.delete('sample:sample')
 
 	# String Type
-	stringType = DataStringObject(con)
+	stringType = String(con)
 	stringType.set('sample:string', 'string')
 	v = stringType.get('sample:string')
 	print(v, file=sys.stdout)
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 	con.delete('sample:string')
 
 	# List Type
-	listType = DataListObject(con)
+	listType = List(con)
 	for i in range(0, 5):
 		listType.push('sample:list', i)
 		listType.push('sample:list', i)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
 	con.delete('sample:list')
 
 	# Set Type
-	setType = DataSetObject(con)
+	setType = Set(con)
 	for i in range(0, 5):
 		setType.add('sample:set', i)
 		setType.add('sample:set', i)
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 	con.delete('sample:set')
 
 	# SortedSet Type
-	sortedSetType = DataSortedSetObject(con)
+	sortedSetType = SortedSet(con)
 	for i in range(0, 5):
 		sortedSetType.add('sample:sortedSet', i, i)
 		sortedSetType.add('sample:sortedSet', i, i)
@@ -86,7 +86,7 @@ if __name__ == '__main__':
 	con.delete('sample:sortedSet')
 
 	# Hash Type
-	hashType = DataHashObject(con)
+	hashType = Hash(con)
 	for i in range(0, 5):
 		hashType.set('sample:hash', i, i)
 	v = hashType.getAll('sample:hash')
